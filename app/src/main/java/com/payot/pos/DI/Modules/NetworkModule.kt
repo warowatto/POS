@@ -2,6 +2,7 @@ package com.payot.pos.DI.Modules
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.payot.pos.Data.Machine
 import com.payot.pos.Data.User
 import dagger.Module
 import dagger.Provides
@@ -22,7 +23,7 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
-    val host = ""
+    val host = "http://manager.payot-poin.com"
 
     @Singleton
     @Provides
@@ -48,7 +49,7 @@ class NetworkModule {
                 .baseUrl(host)
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
     }
 
@@ -62,8 +63,8 @@ class NetworkModule {
 interface RestAPI {
 
     @FormUrlEncoded
-    @POST()
-    fun login(@Field("email") email: String, @Field("password") password: String): Single<User>
+    @POST("/mobile/login")
+    fun login(@Field("email") email: String, @Field("pass") password: String): Single<Pair<User, List<Machine>>>
 
 
 }

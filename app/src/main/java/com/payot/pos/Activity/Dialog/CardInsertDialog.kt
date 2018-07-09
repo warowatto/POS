@@ -1,5 +1,6 @@
 package com.payot.pos.Activity.Dialog
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,5 +14,9 @@ class CardInsertDialog : RootDialogFragment() {
         val view = inflater.inflate(R.layout.dialog_insert_card, container, false)
 
         return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
     }
 }
