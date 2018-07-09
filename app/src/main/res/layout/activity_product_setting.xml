@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="8dp"
+        app:title="상품 등록"
+        app:titleTextColor="@android:color/white"></android.support.v7.widget.Toolbar>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:text="업체명"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24dp" />
+
+            <TextView
+                android:text="깔끔빨래방(수원점)"
+                android:textSize="24dp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:text="사업자 번호"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24dp" />
+
+            <TextView
+                android:text="000-00-00000"
+                android:textSize="24dp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:text="대표자"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24dp" />
+
+            <TextView
+                android:text="홍길동"
+                android:textSize="24dp"
+                android:gravity="right"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/fragmentMachineList"
+            android:name="com.payot.pos.Activity.Fragment.MachineListFragment"
+            android:layout_width="300dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <fragment
+            android:id="@+id/fragmentProductSetting"
+            android:name="com.payot.pos.Activity.Fragment.ProductSettingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:layout_margin="16dp"
+        android:text="상품등록 완료"
+        android:textColor="#c8554e9f"
+        android:textSize="18dp" />
+
+</LinearLayout>

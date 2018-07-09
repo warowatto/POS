@@ -64,4 +64,9 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     implementation "android.arch.persistence.room:rxjava2:$room_version"
 
+    implementation 'com.github.pwittchen:reactivenetwork-rx2:1.0.0'
+
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
 }

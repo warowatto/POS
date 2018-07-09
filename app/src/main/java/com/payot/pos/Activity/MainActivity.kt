@@ -1,12 +1,13 @@
-package com.payot.pos
+package com.payot.pos.Activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.payot.pos.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : RootActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
 }
