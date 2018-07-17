@@ -29,8 +29,9 @@ class NetworkModule {
     @Provides
     fun okhttp(): OkHttpClient {
         return OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .addInterceptor(HttpLoggingInterceptor())
+                .connectTimeout(2, TimeUnit.MINUTES)
+                .readTimeout(2, TimeUnit.MINUTES)
+                .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
                 .build()
     }
 
@@ -60,11 +61,16 @@ class NetworkModule {
     }
 }
 
+data class LoginResponse(val user: User, val machines: List<Machine>)
+
 interface RestAPI {
 
     @FormUrlEncoded
     @POST("/mobile/login")
-    fun login(@Field("email") email: String, @Field("pass") password: String): Single<Pair<User, List<Machine>>>
+    fun login(@Field("email") email: String, @Field("pass") password: String): Single<LoginResponse>
 
+    @FormUrlEncoded
+    @POST("/mobile/payment")
+    fun payment(@Field("mac") mac: String, @Field("price") price: Int, @Field("runningTime") runningTime: Int): Single<Map<String, Boolean>>
 
 }

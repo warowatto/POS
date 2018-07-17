@@ -7,6 +7,7 @@ import com.payot.pos.DI.Modules.ApplicationModule
 import com.payot.pos.DI.Modules.DatabaseModule
 import com.payot.pos.DI.Modules.NetworkModule
 import com.payot.pos.DI.Modules.RestAPI
+import com.payot.pos.Data.User
 import javax.inject.Inject
 
 class App : Application() {
@@ -16,6 +17,7 @@ class App : Application() {
 
     companion object {
         lateinit var component: AppComponent
+        var user: User? = null
     }
 
     override fun onCreate() {
@@ -28,5 +30,9 @@ class App : Application() {
                 .build()
 
         component.inject(this)
+
+        val hasApp = packageManager.getLaunchIntentForPackage("kr.infinix.hpay.appposw") != null
+
+        println(hasApp)
     }
 }

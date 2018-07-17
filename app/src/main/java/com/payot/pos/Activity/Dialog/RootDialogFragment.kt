@@ -38,7 +38,7 @@ open class RootDialogFragment : DialogFragment() {
 
         dialog.window.setLayout(
                 resources.getDimensionPixelSize(R.dimen.dialog_width),
-                resources.getDimensionPixelSize(R.dimen.dialog_height)
+                ViewGroup.LayoutParams.WRAP_CONTENT
         )
     }
 }

@@ -17,10 +17,12 @@ import android.arch.persistence.room.PrimaryKey
 )
 data class Product(
         @PrimaryKey(autoGenerate = true)
-        val id: Int,
+        var id: Int?,
 
         val machineId: Int,
 
         val name: String,
 
-        val price: Int)
+        val price: Int,
+
+        val runningTime: Int)

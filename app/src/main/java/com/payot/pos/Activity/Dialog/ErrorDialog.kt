@@ -5,23 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.payot.pos.R
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 
 class ErrorDialog : RootDialogFragment() {
 
+    lateinit var rootView: View
+    var message: String = ""
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater.inflate(R.layout.dialog_error, container, false)
+        rootView = inflater.inflate(R.layout.dialog_error, container, false)
 
-        view.findViewById<Button>(R.id.btnError).setOnClickListener {
+        return rootView
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        rootView.findViewById<TextView>(R.id.txtErrorReson).text = message
+        rootView.findViewById<Button>(R.id.btnError).setOnClickListener {
             dialog.dismiss()
         }
-
-        return view
     }
 }

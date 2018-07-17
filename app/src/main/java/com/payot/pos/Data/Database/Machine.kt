@@ -6,8 +6,12 @@ import android.arch.persistence.room.PrimaryKey
 @Entity
 data class Machine(
         @PrimaryKey(autoGenerate = true)
-        val id: Int,
+        var id: Int?,
 
         val name: String,
 
-        val mac: String)
+        val mac: String,
+
+        val type: String,
+
+        val info: String)

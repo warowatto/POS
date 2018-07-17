@@ -27,9 +27,10 @@
                 android:textSize="24dp" />
 
             <TextView
+                android:id="@+id/txtCompanyName"
+                android:gravity="right"
                 android:text="깔끔빨래방(수원점)"
-                android:textSize="24dp"
-                android:gravity="right"/>
+                android:textSize="24dp" />
         </TableRow>
 
         <TableRow>
@@ -40,9 +41,10 @@
                 android:textSize="24dp" />
 
             <TextView
+                android:id="@+id/txtCompanyNumber"
+                android:gravity="right"
                 android:text="000-00-00000"
-                android:textSize="24dp"
-                android:gravity="right"/>
+                android:textSize="24dp" />
         </TableRow>
 
         <TableRow>
@@ -53,9 +55,10 @@
                 android:textSize="24dp" />
 
             <TextView
+                android:id="@+id/txtOwnerName"
+                android:gravity="right"
                 android:text="홍길동"
-                android:textSize="24dp"
-                android:gravity="right"/>
+                android:textSize="24dp" />
         </TableRow>
 
     </TableLayout>
@@ -71,9 +74,8 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragmentMachineList"
-            android:name="com.payot.pos.Activity.Fragment.MachineListFragment"
             android:layout_width="300dp"
             android:layout_height="match_parent" />
 
@@ -82,9 +84,8 @@
             android:layout_height="match_parent"
             android:background="?android:attr/listDivider" />
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragmentProductSetting"
-            android:name="com.payot.pos.Activity.Fragment.ProductSettingFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -96,6 +97,7 @@
         android:background="?android:attr/listDivider" />
 
     <Button
+        android:id="@+id/btnComplite"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="200dp"
         android:layout_height="50dp"
